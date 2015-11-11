@@ -1,0 +1,36 @@
+<div class='container'>
+    <div class="form-group">
+        <label for="name">Item Name</label>
+        <input type="text" class="form-control" id="name" ng-model="item.name" placeholder="item name">
+    </div>
+    <div class="form-group">
+        <label for="price">Reservation Price</label>
+        <input type="number" class="form-control" id="price" ng-model="item.reservationPrice" placeholder="$45.00">
+    </div>
+		
+		<h5>Upload Item Pic</h5>
+	  <button ngf-select="uploadFiles($files, $invalidFiles)" multipleaccept="image/*" ngf-max-height="2000" ngf-max-size="1MB">
+	      Select Files</button>
+	  <br><br>
+	  Files:
+	  <ul>
+	    <li ng-repeat="f in files" style="font:smaller">{{f.name}} {{f.$errorParam}}
+	      <span class="progress" ng-show="f.progress >= 0">
+	        <div style="width:{{f.progress}}%"  
+	            ng-bind="f.progress + '%'"></div>
+	      </span>
+	    </li>
+	    <li ng-repeat="f in errFiles" style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}
+	    </li> 
+	  </ul>
+	  {{errorMsg}}
+
+    <div class="form-group">
+	    <label for="description">Item Description</label>
+	    <input type="text" class="form-control" id="description" ng-model="item.description" placeholder="item description">
+	  </div>
+
+	  <button ng-click="addItem(item)" type="submit" class="btn btn-default">Submit</button>
+	</form>
+
+</div>

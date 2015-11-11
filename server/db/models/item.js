@@ -1,6 +1,5 @@
 'use strict';
 var mongoose = require('mongoose');
-var User = mongoose.model('User');
 
 var itemSchema = new mongoose.Schema({
 	seller: {
@@ -15,6 +14,7 @@ var itemSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
+	image: String,
 	description: String,
 	reservationPrice: Number,
 	currentBid: {
@@ -23,10 +23,13 @@ var itemSchema = new mongoose.Schema({
 		required: true
 	},
 	timeStart: {
-		type: Date
+		type: Date,
+		default: Date.now,
+		required: true
 	},
 	timeEnd: {
 		type: Date
 	}
 });
 
+mongoose.model('Item', itemSchema);
