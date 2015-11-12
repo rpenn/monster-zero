@@ -2,15 +2,18 @@
 
 <div class="container">
 	<div class="row">
-		<div  class="col-md-4" ng-repeat="item in items">
-			<div class="panel panel-primary">
+		<div  class="col-md-4" ng-repeat="item in items | orderBy: 'item.timeEnd'" ng-show="if({{item.timeEnd}} > Date.now()" style="text-align: center;">
+			<div class="panel panel-primary" style="border: 2px solid black">
 				<div class="panel-body">
-					<h3>{{item.name}}</h3>
-					<a href="#" class="thumbnail">
-     			 	<img src="{{item.image}}">
-   				 </a>
-   				 <h3>{{item.description}}</h3>
-   				 <h3>{{item.currentBid | currency}}</h3>
+					<h3 style="color: darkblue">{{item.name}}</h3>
+					<a href="#" class="thumbnail" style="height: 80%; width: 80%; margin-left: auto; margin-right: auto; border: 1px solid black;">
+     			<img src="{{item.image}}">
+   				</a>
+   				<p style="text-align: left">{{item.description}}</p>
+   				<div style="display: inline;">				 
+	   				<h4 style="color: red">Current Bid: <strong>{{item.reservationPrice | currency}}</strong></h4><button type="button" class="btn btn-warning">BID!</button>
+   				</div>
+   				<h4>Auction Ends at: {{item.timeEnd | date: 'medium'}}</h4>
    			</div>
 			</div>
 		</div>		
