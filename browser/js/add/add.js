@@ -56,6 +56,7 @@ app.controller('AddCtrl', function ($scope, $state, ItemsFactory, Upload, $timeo
     file.upload.then(function (response) {
       $timeout(function () {
         file.result = response.data;
+        console.log(file);
       });
     }, function (response) {
       if (response.status > 0)
