@@ -2,7 +2,7 @@
 
 <div class="container">
 	<div class="row">
-		<div  class="col-md-4" ng-repeat="item in items | orderBy: 'item.timeEnd'" ng-show="if({{item.timeEnd}} > Date.now()" style="text-align: center;">
+		<div  class="col-md-4" ng-repeat="item in items | orderBy: 'item.timeEnd'" style="text-align: center;">
 			<div class="panel panel-primary" style="border: 2px solid black">
 				<div class="panel-body">
 					<h3 style="color: darkblue">{{item.name}}</h3>
@@ -16,6 +16,6 @@
    				<h4>Auction Ends at: {{item.timeEnd | date: 'medium'}}</h4>
    			</div>
 			</div>
-		</div>		
+		</div>
 	</div>
 </div>
